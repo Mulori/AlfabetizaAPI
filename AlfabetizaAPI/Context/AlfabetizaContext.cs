@@ -6,10 +6,10 @@ namespace AlfabetizaAPI.Context
     public class AlfabetizaContext : DbContext
     {
         public AlfabetizaContext(DbContextOptions<AlfabetizaContext> options) : base(options)
-        {
+        { }
 
-        }
-
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<Community> Community { get; set; }
+        public DbSet<UserCommunity> UserCommunity { get; set; }
     }
 }

@@ -1,12 +1,22 @@
-﻿namespace AlfabetizaAPI.Models.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace AlfabetizaAPI.Models.Entities
 {
     public class User
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
+        [Required]
         public string name { get; set; } = string.Empty;
+        [Required]
         public string email { get; set; } = string.Empty;
+        [Required]
         public string password { get; set; } = string.Empty;
-        public int type_account { get; set; } = 0;
+        [Required]
+        public int type_account { get; set; }
+        public List<Community> community { get; set; }
         public DateTime created_at { get; set; }
         public DateTime updated_at { get; set; }
     }
