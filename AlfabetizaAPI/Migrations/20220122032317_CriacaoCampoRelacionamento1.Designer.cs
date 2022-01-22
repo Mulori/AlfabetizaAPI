@@ -3,6 +3,7 @@ using System;
 using AlfabetizaAPI.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AlfabetizaAPI.Migrations
 {
     [DbContext(typeof(AlfabetizaContext))]
-    partial class AlfabetizaContextModelSnapshot : ModelSnapshot
+    [Migration("20220122032317_CriacaoCampoRelacionamento1")]
+    partial class CriacaoCampoRelacionamento1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,65 +93,18 @@ namespace AlfabetizaAPI.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("User");
-                });
-
-            modelBuilder.Entity("AlfabetizaAPI.Models.Entities.UserCommunity", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
-
-                    b.Property<int>("community_id")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("user_id")
-                        .HasColumnType("integer");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("community_id");
-
-                    b.HasIndex("user_id");
-
-                    b.ToTable("UserCommunity");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("AlfabetizaAPI.Models.Entities.Community", b =>
                 {
-                    b.HasOne("AlfabetizaAPI.Models.Entities.User", "user")
-                        .WithMany("community")
-                        .HasForeignKey("user_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("user");
-                });
-
-            modelBuilder.Entity("AlfabetizaAPI.Models.Entities.UserCommunity", b =>
-                {
-                    b.HasOne("AlfabetizaAPI.Models.Entities.Community", "community")
-                        .WithMany()
-                        .HasForeignKey("community_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AlfabetizaAPI.Models.Entities.User", "user")
+                    b.HasOne("AlfabetizaAPI.Models.Entities.User", "users")
                         .WithMany()
                         .HasForeignKey("user_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("community");
-
-                    b.Navigation("user");
-                });
-
-            modelBuilder.Entity("AlfabetizaAPI.Models.Entities.User", b =>
-                {
-                    b.Navigation("community");
+                    b.Navigation("users");
                 });
 #pragma warning restore 612, 618
         }

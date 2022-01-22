@@ -3,6 +3,7 @@ using System;
 using AlfabetizaAPI.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AlfabetizaAPI.Migrations
 {
     [DbContext(typeof(AlfabetizaContext))]
-    partial class AlfabetizaContextModelSnapshot : ModelSnapshot
+    [Migration("20220122040906_CriacaoCampoRelacionamento3")]
+    partial class CriacaoCampoRelacionamento3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -119,13 +121,13 @@ namespace AlfabetizaAPI.Migrations
 
             modelBuilder.Entity("AlfabetizaAPI.Models.Entities.Community", b =>
                 {
-                    b.HasOne("AlfabetizaAPI.Models.Entities.User", "user")
-                        .WithMany("community")
+                    b.HasOne("AlfabetizaAPI.Models.Entities.User", "users")
+                        .WithMany()
                         .HasForeignKey("user_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("user");
+                    b.Navigation("users");
                 });
 
             modelBuilder.Entity("AlfabetizaAPI.Models.Entities.UserCommunity", b =>
@@ -145,11 +147,6 @@ namespace AlfabetizaAPI.Migrations
                     b.Navigation("community");
 
                     b.Navigation("user");
-                });
-
-            modelBuilder.Entity("AlfabetizaAPI.Models.Entities.User", b =>
-                {
-                    b.Navigation("community");
                 });
 #pragma warning restore 612, 618
         }
