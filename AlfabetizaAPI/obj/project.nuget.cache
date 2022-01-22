@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "WSKdbwq2a1IsYJynM4P3vUXj/JDfSHIoOSE2yWdLgG5eHiNsp+20ufDLkos5BSC7jxu/eFFqXsAaOvm2dV7ueA==",
+  "dgSpecHash": "Pi0oNhyUuyH/swGTWRq4EmvqE5pThP2QXQ6kAECLBKPsXUs79ESlsafKK8YXGNcGyp76uTs5kjrKLq1H0GZqKg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Murilo\\source\\repos\\AlfabetizaAPI\\AlfabetizaAPI\\AlfabetizaAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Murilo\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\Murilo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Murilo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Murilo\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.1\\microsoft.aspnetcore.jsonpatch.6.0.1.nupkg.sha512",
     "C:\\Users\\Murilo\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\6.0.1\\microsoft.aspnetcore.mvc.newtonsoftjson.6.0.1.nupkg.sha512",

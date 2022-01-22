@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AlfabetizaAPI.Migrations
 {
     [DbContext(typeof(AlfabetizaContext))]
-    [Migration("20220122040906_CriacaoCampoRelacionamento3")]
-    partial class CriacaoCampoRelacionamento3
+    [Migration("20220122214040_Tabela")]
+    partial class Tabela
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -121,13 +121,13 @@ namespace AlfabetizaAPI.Migrations
 
             modelBuilder.Entity("AlfabetizaAPI.Models.Entities.Community", b =>
                 {
-                    b.HasOne("AlfabetizaAPI.Models.Entities.User", "users")
-                        .WithMany()
+                    b.HasOne("AlfabetizaAPI.Models.Entities.User", "user")
+                        .WithMany("community")
                         .HasForeignKey("user_id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("users");
+                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("AlfabetizaAPI.Models.Entities.UserCommunity", b =>
@@ -147,6 +147,11 @@ namespace AlfabetizaAPI.Migrations
                     b.Navigation("community");
 
                     b.Navigation("user");
+                });
+
+            modelBuilder.Entity("AlfabetizaAPI.Models.Entities.User", b =>
+                {
+                    b.Navigation("community");
                 });
 #pragma warning restore 612, 618
         }

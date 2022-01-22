@@ -8,11 +8,11 @@ namespace AlfabetizaAPI.Models.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
-        [Required]
+        [Required, DataType(DataType.Text)]
         public string name { get; set; } = string.Empty;
-        [Required]
+        [Required, DataType(DataType.EmailAddress)]
         public string email { get; set; } = string.Empty;
-        [Required]
+        [Required, DataType(DataType.Text)]
         public string password { get; set; } = string.Empty;
         [Required]
         public int type_account { get; set; }

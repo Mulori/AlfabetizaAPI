@@ -14,14 +14,14 @@ namespace AlfabetizaAPI.Repository
             _context = context;
         }
 
-        public IEnumerable<User> Get()
+        public async Task<IEnumerable<User>> GetAsync()
         {
-            return _context.User.Include(x => x.community).ToList();
+            return await _context.User.Include(x => x.community).ToListAsync();
         }
 
-        public User GetById(int _id)
+        public async Task<User> GetByIdAsync(int _id)
         {
-            return _context.User.Include(_x => _x.community).Where(x => x.id == _id).FirstOrDefault();
+            return await _context.User.Include(_x => _x.community).Where(x => x.id == _id).FirstOrDefaultAsync();
         }
     }
 }
