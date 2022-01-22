@@ -1,4 +1,5 @@
 using AlfabetizaAPI.Context;
+using AlfabetizaAPI.Helpers;
 using AlfabetizaAPI.Repository;
 using AlfabetizaAPI.Repository.Interface;
 using AlfabetizaAPI.Services.Interfaces;
@@ -22,6 +23,15 @@ builder.Services.AddDbContext<AlfabetizaContext>(options => {
 builder.Services.AddScoped<ICalculate, Calculate>();
 builder.Services.AddScoped<IBaseRepository, BaseRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+var config = new AutoMapper.MapperConfiguration(cfg =>
+{
+    cfg.AddProfile(new AlfabetizaProfile());
+});
+
+var mapper = config.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
 
 var app = builder.Build();
 

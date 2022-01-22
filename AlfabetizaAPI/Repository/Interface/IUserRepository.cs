@@ -4,7 +4,7 @@ namespace AlfabetizaAPI.Repository.Interface
 {
     public interface IUserRepository : IBaseRepository
     {
-        IEnumerable<User> Get();
-        User GetById(int id);
+        Task<IEnumerable<User>> GetAsync();
+        Task<User> GetByIdAsync(int id);
     }
 }

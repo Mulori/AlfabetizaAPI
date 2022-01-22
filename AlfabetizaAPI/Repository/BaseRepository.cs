@@ -14,7 +14,7 @@ namespace AlfabetizaAPI.Repository
 
         public void Add<T>(T Entity) where T : class
         {
-            throw new NotImplementedException();
+            _context.Add(Entity);
         }
 
         public void Delete<T>(T Entity) where T : class
@@ -22,14 +22,14 @@ namespace AlfabetizaAPI.Repository
             throw new NotImplementedException();
         }
 
-        public bool SaveChanges()
+        public async Task<bool> SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.SaveChangesAsync() > 0;
         }
 
         public void Update<T>(T Entity) where T : class
         {
-            throw new NotImplementedException();
+            _context.Update(Entity);
         }
     }
 }
