@@ -1,4 +1,6 @@
 ﻿using AlfabetizaAPI.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AlfabetizaAPI.Controllers
@@ -8,6 +10,7 @@ namespace AlfabetizaAPI.Controllers
     public class TypeAccountController : Controller
     {
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Get()
         {
             var listTypeAccount = new List<TypeAccount>();
