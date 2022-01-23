@@ -1,5 +1,6 @@
 ﻿using AlfabetizaAPI.Models.Entities;
 using AlfabetizaAPI.Services.Interfaces;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AlfabetizaAPI.Controllers

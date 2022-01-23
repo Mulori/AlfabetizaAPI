@@ -19,6 +19,11 @@ namespace AlfabetizaAPI.Repository
             return await _context.User.Include(x => x.community).ToListAsync();
         }
 
+        public async Task<User> GetByEmailAndPasswordAsync(string email, string password)
+        {
+            return await _context.User.Where(x => x.email == email && x.password == password).FirstOrDefaultAsync();
+        }
+
         public async Task<User> GetByIdAsync(int _id)
         {
             return await _context.User.Include(_x => _x.community).Where(x => x.id == _id).FirstOrDefaultAsync();

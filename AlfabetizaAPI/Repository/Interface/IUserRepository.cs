@@ -6,5 +6,6 @@ namespace AlfabetizaAPI.Repository.Interface
     {
         Task<IEnumerable<User>> GetAsync();
         Task<User> GetByIdAsync(int id);
+        Task<User> GetByEmailAndPasswordAsync(string email, string password);
     }
 }

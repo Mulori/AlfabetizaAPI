@@ -15,9 +15,15 @@ namespace AlfabetizaAPI.Models.Entities
         [Required, DataType(DataType.Text)]
         public string password { get; set; } = string.Empty;
         [Required]
-        public int type_account { get; set; }
-        public List<Community> community { get; set; }
+        public int type_account { get; set; }       
+        [Required]
+        public DateTime birth_date { get; set; }
         public DateTime created_at { get; set; }
         public DateTime updated_at { get; set; }
+
+
+
+
+        public List<Community> community { get; set; }
     }
 }

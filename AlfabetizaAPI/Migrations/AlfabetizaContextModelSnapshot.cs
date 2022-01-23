@@ -68,6 +68,9 @@ namespace AlfabetizaAPI.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
+                    b.Property<DateTime>("birth_date")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<DateTime>("created_at")
                         .HasColumnType("timestamp with time zone");
 

@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AlfabetizaAPI.Migrations
 {
     [DbContext(typeof(AlfabetizaContext))]
-    [Migration("20220122214040_Tabela")]
+    [Migration("20220123032004_Tabela")]
     partial class Tabela
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,6 +69,9 @@ namespace AlfabetizaAPI.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<DateTime>("birth_date")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("created_at")
                         .HasColumnType("timestamp with time zone");
